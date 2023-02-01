@@ -2,7 +2,7 @@
 
 JellyML is an open-source tool (python API and command line) for effortlessly embedding a snapshot of your code 
              | into a checkpoint of a pytorch model.
-Learn more at [jellyml.com](jellyml.com)
+Learn more at [jellyml.com](https://jellyml.com)
 
 ## Structure of the jellyml repository
 (Note that the jellyml repository is a monorepo. If you are
