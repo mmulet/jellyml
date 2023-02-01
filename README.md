@@ -1,4 +1,4 @@
-# JellyMl
+# JellyML
 
 JellyML is an open-source tool (python API and command line) for effortlessly embedding a snapshot of your code 
              | into a checkpoint of a pytorch model.
