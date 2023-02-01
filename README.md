@@ -4,6 +4,10 @@ JellyML is an open-source tool (python API and command line) for effortlessly em
              | into a checkpoint of a pytorch model.
 Learn more at [jellyml.com](https://jellyml.com)
 
+```sh
+pip install jellyml
+```
+
 ## Structure of the jellyml repository
 (Note that the jellyml repository is a monorepo. If you are
 reading this from the python package source code,
