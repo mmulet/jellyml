@@ -1,0 +1,17 @@
+.r1 {color: #f92672; text-decoration-color: #f92672; background-color: #272822}
+.r2 {color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822}
+.r3 {background-color: #272822}
+.r4 {color: #75715e; text-decoration-color: #75715e; background-color: #272822}
+.r5 {color: #e6db74; text-decoration-color: #e6db74; background-color: #272822}
+.code-box {
+  background-color: #272822;
+  border: 1px solid #75715e;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  font-family: monospace;
+  font-size: 12px;
+  color: #f8f8f2;
+  text-decoration-color: #f8f8f2;
+  line-height: 17px;
+}

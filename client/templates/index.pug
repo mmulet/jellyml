@@ -1,0 +1,111 @@
+include red_box.pug
+
+mixin links
+   code $ pip install jellyml
+   p(style="padding: 10px;") JellyML comes with a getting started guide built-in, just run:
+   code $ jellyml -h
+   div or you can read the docs here:
+   ul
+    li 
+      a(href="/docs.html#getting-started" target="_blank") Getting Started
+    li 
+      a(href="/docs.html" target="_blank") Documentation
+    li 
+      a(href="https://www.github.com/mmulet/jellyml" target="_blank") GitHub repo
+    li 
+      a(href="/blog.html" target="_blank") Blog
+
+
+doctype html
+template 
+  span version-1.0
+html(lang="en")
+  head
+    include head.pug
+    title="Jelly ML"
+   
+
+
+  body
+    div(style="position: fixed; top: 0px; z-index: -1;")
+      img(src="/static/jelly_logo_40001.webp" style="height: 100vh;" title="Jelly ML" alt="Jelly ML")
+    div(style="height: 80vh;")
+    main(id="main")
+       
+        h2(class="title" style="justify-self:left;") What is JellyML?
+        div(class="red-line")
+        span(class="animation-toggle-box")
+          label(for="animation-toggle") Interactive Animation
+          input(type="checkbox", checked name="animation_toggle" id="animation-toggle")
+        .content
+          p JellyML is an open-source tool (python API and command line) for effortlessly embedding a snapshot of your code 
+             | into a checkpoint of a pytorch (and pytorch lightning) model.
+        +links()
+       
+        h2(class="title" style="justify-self:left;") What can JellyML do?
+        div(class="red-line" id="tentacle-line")
+        .content
+         
+          p With JellyML  you can go back
+            |  to any of your checkpoints, and reproduce your code exactly as it was when you trained it.
+          p All of this without having 
+            | to worry about git commits, branches, configuration files, or any of that other stuff. It just works.
+    
+          p It only takes a few lines of code to set up a snapshot of your code:
+          div !{python_example_html}
+          a(href="/docs.html#lightning-getting-started" target="_blank") See here for a lightning example
+          .content
+            p And loading a snapshot is just one command away: 
+
+            code $ jellyml load-snapshot-from my_model.pth
+
+
+            h4 But wait, that's not all! 
+            p As an added bonus, you can easily share your model with others, and they can reproduce it with a single command. 
+              | The entire model, code included, is in one file. You can upload it, put it on a flash drive, email it, 
+              | print it out, or put it on a QR code.
+            p No more messing with git lfs.
+            p You can read more about why I built JellyML in  
+              a(href="/blog.html" target="_blank") this blog post.
+
+        +red_box("Why is it called JellyML?")
+        .content 
+          p Think of your model checkpoint as a donut, and your code as the delicious jelly filling. 
+            | See Figure 1:
+          figure
+            video(style="max-width:100%;display:block" autoplay muted loop playsinline  alt="A donut being filled with jelly. The jelly is in the form of the word 'code' and the donut has sprinkles in the form of the word 'model'.")
+                source(src="/static/jelly_fill0001-2400.mp4" type="video/mp4")
+            figcaption <b>Figure 1</b>
+
+        +red_box("How does JellyML work?")
+        .content 
+          p JellyML is built on top of the world's most popular version control system, git.
+          | It's not a replacement for git, rather it works with git. 
+          | JellyML handles the git commands for you, so you don't have to read the git book again. 
+          p If you want to learn more about how it works, each command has a detailed explanation in the 
+            a(href="/docs.html" target="_blank") Documentation.
+        div(style="height: 80px;")
+    main(style="padding: 20px;margin-top: 40px;")
+        h3 Return of Code Relay
+        p This isn't related to JellyML, but I wanted to share
+          |  some exciting news.
+        p In early 2021, I started the Code Relay project as a way
+          |  to help open source maintainers. However, in 2022 I put in 
+          | on hiatus for two reasons:
+        ol 
+          li I got a lot of people who wanted to work on issues, but very 
+            | few people who wanted help with issues (ie. 100x1 ratio of contributors
+            | to maintainers).
+          li For maintainers, GitHub Copilot does what I envisioned Code Relay doing.
+        p So, I may not be as involved, but I'm happy to announce that I 
+          |  have found a new maintainer for the project:
+          a(href="https://github.com/AverseABFun-windows" target="_blank") @AverseABFun-windows
+          | , a US coder and contributor. Check it out at 
+          a(href="https://www.coderelay.io") coderelay.io
+          |  and give AverseABFun your support!
+
+    div(style="height: 80vh; display: flex; flex-flow: row; justify-content: center; align-items:center;") 
+        main(style="padding: 10px;") This space intentionally left blank
+    main(style="padding: 10px;")
+      include footer.pug
+  script(src="/code/index.js")

@@ -1,0 +1,11 @@
+dist
+*.egg-info
+__pycache__
+.vscode
+jellyml/src/tests
+venv
+test_3.7_env
+test_3.10_env
+node_modules
+.DS_Store
+dev_server/build

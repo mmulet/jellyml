@@ -1,0 +1,929 @@
+<!DOCTYPE html><template> <span>version-1.0</span></template><html lang="en"><head><meta charset="utf-8" content="text/html"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#84a1a5"><style>/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+========================================================================== */
+
+/**
+* 1. Correct the line height in all browsers.
+* 2. Prevent adjustments of font size after orientation changes in iOS.
+*/
+
+html {
+line-height: 1.15; /* 1 */
+-webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+========================================================================== */
+
+/**
+* Remove the margin in all browsers.
+*/
+
+body {
+margin: 0;
+}
+
+/**
+* Render the `main` element consistently in IE.
+*/
+
+main {
+display: block;
+}
+
+/**
+* Correct the font size and margin on `h1` elements within `section` and
+* `article` contexts in Chrome, Firefox, and Safari.
+*/
+
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+
+/* Grouping content
+========================================================================== */
+
+/**
+* 1. Add the correct box sizing in Firefox.
+* 2. Show the overflow in Edge and IE.
+*/
+
+hr {
+box-sizing: content-box; /* 1 */
+height: 0; /* 1 */
+overflow: visible; /* 2 */
+}
+
+/**
+* 1. Correct the inheritance and scaling of font size in all browsers.
+* 2. Correct the odd `em` font sizing in all browsers.
+*/
+
+pre {
+font-family: monospace, monospace; /* 1 */
+font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+========================================================================== */
+
+/**
+* Remove the gray background on active links in IE 10.
+*/
+
+a {
+background-color: transparent;
+}
+
+/**
+* 1. Remove the bottom border in Chrome 57-
+* 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+*/
+
+abbr[title] {
+border-bottom: none; /* 1 */
+text-decoration: underline; /* 2 */
+text-decoration: underline dotted; /* 2 */
+}
+
+/**
+* Add the correct font weight in Chrome, Edge, and Safari.
+*/
+
+b,
+strong {
+font-weight: bolder;
+}
+
+/**
+* 1. Correct the inheritance and scaling of font size in all browsers.
+* 2. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp {
+font-family: monospace, monospace; /* 1 */
+font-size: 1em; /* 2 */
+}
+
+/**
+* Add the correct font size in all browsers.
+*/
+
+small {
+font-size: 80%;
+}
+
+/**
+* Prevent `sub` and `sup` elements from affecting the line height in
+* all browsers.
+*/
+
+sub,
+sup {
+font-size: 75%;
+line-height: 0;
+position: relative;
+vertical-align: baseline;
+}
+
+sub {
+bottom: -0.25em;
+}
+
+sup {
+top: -0.5em;
+}
+
+/* Embedded content
+========================================================================== */
+
+/**
+* Remove the border on images inside links in IE 10.
+*/
+
+img {
+border-style: none;
+}
+
+/* Forms
+========================================================================== */
+
+/**
+* 1. Change the font styles in all browsers.
+* 2. Remove the margin in Firefox and Safari.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+font-family: inherit; /* 1 */
+font-size: 100%; /* 1 */
+line-height: 1.15; /* 1 */
+margin: 0; /* 2 */
+}
+
+/**
+* Show the overflow in IE.
+* 1. Show the overflow in Edge.
+*/
+
+button,
+input { /* 1 */
+overflow: visible;
+}
+
+/**
+* Remove the inheritance of text transform in Edge, Firefox, and IE.
+* 1. Remove the inheritance of text transform in Firefox.
+*/
+
+button,
+select { /* 1 */
+text-transform: none;
+}
+
+/**
+* Correct the inability to style clickable types in iOS and Safari.
+*/
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+-webkit-appearance: button;
+}
+
+/**
+* Remove the inner border and padding in Firefox.
+*/
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+border-style: none;
+padding: 0;
+}
+
+/**
+* Restore the focus styles unset by the previous rule.
+*/
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+outline: 1px dotted ButtonText;
+}
+
+/**
+* Correct the padding in Firefox.
+*/
+
+fieldset {
+padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+* 1. Correct the text wrapping in Edge and IE.
+* 2. Correct the color inheritance from `fieldset` elements in IE.
+* 3. Remove the padding so developers are not caught out when they zero out
+*    `fieldset` elements in all browsers.
+*/
+
+legend {
+box-sizing: border-box; /* 1 */
+color: inherit; /* 2 */
+display: table; /* 1 */
+max-width: 100%; /* 1 */
+padding: 0; /* 3 */
+white-space: normal; /* 1 */
+}
+
+/**
+* Add the correct vertical alignment in Chrome, Firefox, and Opera.
+*/
+
+progress {
+vertical-align: baseline;
+}
+
+/**
+* Remove the default vertical scrollbar in IE 10+.
+*/
+
+textarea {
+overflow: auto;
+}
+
+/**
+* 1. Add the correct box sizing in IE 10.
+* 2. Remove the padding in IE 10.
+*/
+
+[type="checkbox"],
+[type="radio"] {
+box-sizing: border-box; /* 1 */
+padding: 0; /* 2 */
+}
+
+/**
+* Correct the cursor style of increment and decrement buttons in Chrome.
+*/
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+height: auto;
+}
+
+/**
+* 1. Correct the odd appearance in Chrome and Safari.
+* 2. Correct the outline style in Safari.
+*/
+
+[type="search"] {
+-webkit-appearance: textfield; /* 1 */
+outline-offset: -2px; /* 2 */
+}
+
+/**
+* Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+[type="search"]::-webkit-search-decoration {
+-webkit-appearance: none;
+}
+
+/**
+* 1. Correct the inability to style clickable types in iOS and Safari.
+* 2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+-webkit-appearance: button; /* 1 */
+font: inherit; /* 2 */
+}
+
+/* Interactive
+========================================================================== */
+
+/*
+* Add the correct display in Edge, IE 10+, and Firefox.
+*/
+
+details {
+display: block;
+}
+
+/*
+* Add the correct display in all browsers.
+*/
+
+summary {
+display: list-item;
+}
+
+/* Misc
+========================================================================== */
+
+/**
+* Add the correct display in IE 10+.
+*/
+
+template {
+display: none;
+}
+
+/**
+* Add the correct display in IE 10.
+*/
+
+[hidden] {
+display: none;
+}</style><style>@font-face {
+  font-family: 'Atomic Age';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/atomicage/v27/f0Xz0eug6sdmRFkYZZGL18bn9I0FceE.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+html {
+  background-color: #84a1a5;
+  
+}
+body {
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+   font-family: 'Atomic Age', sans-serif;
+   font-weight: 400; 
+   font-style: normal;
+   padding: 20px;
+  
+}
+main {
+  max-width: 90%;
+}
+
+@media (min-width: 600px) {
+  main {
+    max-width: 50%;
+    padding: 20px 0px;
+
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 4px solid black;
+  border-radius: 25px;
+ 
+}
+
+.content {
+  padding: 20px;
+}
+
+
+
+.red-line {
+    min-width: 100%; height:5px; background-color: red;
+}
+.left-align {
+  width: 100%;
+}
+
+.animation-toggle-box {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+td {
+  min-width: 150px;
+}
+.header-anchor {
+  text-decoration: none;
+  color: black;
+}
+
+.r1 {color: #f92672; text-decoration-color: #f92672; background-color: #272822}
+.r2 {color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822}
+.r3 {background-color: #272822}
+.r4 {color: #75715e; text-decoration-color: #75715e; background-color: #272822}
+.r5 {color: #e6db74; text-decoration-color: #e6db74; background-color: #272822}
+.code-box {
+  background-color: #272822;
+  border: 1px solid #75715e;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  font-family: monospace;
+  font-size: 12px;
+  color: #f8f8f2;
+  text-decoration-color: #f8f8f2;
+  line-height: 17px;
+}
+</style><title>Jelly ML Documentation</title><style>  main {
+      align-items: flex-start;
+      justify-content:left;
+      
+  }
+  main {
+      padding: 10px;
+  }
+  @media (min-width: 600px) {
+  main {
+    max-width: 50%;
+    padding: 20px
+
+  }
+}
+  pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{background:#f3f3f3;color:#444}.hljs-comment{color:#697070}.hljs-punctuation,.hljs-tag{color:#444a}.hljs-tag .hljs-attr,.hljs-tag .hljs-name{color:#444}.hljs-attribute,.hljs-doctag,.hljs-keyword,.hljs-meta .hljs-keyword,.hljs-name,.hljs-selector-tag{font-weight:700}.hljs-deletion,.hljs-number,.hljs-quote,.hljs-selector-class,.hljs-selector-id,.hljs-string,.hljs-template-tag,.hljs-type{color:#800}.hljs-section,.hljs-title{color:#800;font-weight:700}.hljs-link,.hljs-operator,.hljs-regexp,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-symbol,.hljs-template-variable,.hljs-variable{color:#ab5656}.hljs-literal{color:#695}.hljs-addition,.hljs-built_in,.hljs-bullet,.hljs-code{color:#397300}.hljs-meta{color:#1f7199}.hljs-meta .hljs-string{color:#38a}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}
+   code {
+      font-size: 12px;
+  }
+.indent {
+  padding-left: 40px;
+}
+
+.indent pre code  {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+</style></head></html><body><a href="/"><img src="/static/logo.png" alt="Jelly ML logo" style="height: 100px;"></a><h1>JellyML Documentation</h1><main style="margin-bottom: 20px;padding: 10px;"><h2>Table of Contents</h2><ul><li> <a href="#getting-started">Getting Started</a></li><li> <a href="#api">API</a><ul><li><a href="#create_snapshot">create_snapshot</a></li></ul><ul><li> <a href="#create_snapshot">create_snapshot</a></li></ul></li><li> <a href="#cli">Command Line Reference</a><ul><li> <a href="#eat">eat</a></li><li> <a href="#undonut">undonut</a></li><li> <a href="#git">git</a></li><li> <a href="#fix">fix</a></li></ul></li></ul></main><main><h2 class="title" style="justify-self:left;">Tutorial</h2><div class="red-line"></div><h2 id="getting-started" tabindex="-1"><a class="header-anchor" href="#getting-started"><span>Getting Started</span></a></h2>
+<p>Welcome to JellyML!
+JellyML is an open-source tool (python API and command line) for effortlessly embedding a snapshot of your code
+into a checkpoint of a pytorch (and pytorch lightning) model.</p>
+<h3 id="1.-install-git" tabindex="-1"><a class="header-anchor" href="#1.-install-git"><span>1. Install git</span></a></h3>
+<p>The first step is to make sure you have git installed. You can
+<a href="https://git-scm.com/downloads">download git from here</a>.</p>
+<h3 id="1.5-(optional-but-recommended-for-nicer-looking-output)-download-a-terminal-with-rich-text-support" tabindex="-1"><a class="header-anchor" href="#1.5-(optional-but-recommended-for-nicer-looking-output)-download-a-terminal-with-rich-text-support"><span>1.5 (Optional but recommended for nicer looking output) Download a terminal with rich text support</span></a></h3>
+<p>JellyML uses the lovely <a href="https://github.com/Textualize/rich">rich</a> library to make the output look nice.
+But, the output on some terminals won't look as nice as it could. Here are the terminals that the rich library
+developers recommend:</p>
+<h4 id="linux-(all-distros)" tabindex="-1"><a class="header-anchor" href="#linux-(all-distros)"><span>Linux (all distros)</span></a></h4>
+<p>Most default terminals support rich text. On Ubuntu you can use gnome-terminal, launched with
+| CTRL+ALT+T</p>
+<h4 id="macos" tabindex="-1"><a class="header-anchor" href="#macos"><span>macOS</span></a></h4>
+<p>The default terminal app is limited to 256 colors. We recommend installing a newer terminal such as
+<a href="https://iterm2.com/">iTerm2</a>, <a href="https://sw.kovidgoyal.net/kitty/">Kitty</a>, or <a href="https://wezfurlong.org/wezterm/">WezTerm</a>.</p>
+<h4 id="windows" tabindex="-1"><a class="header-anchor" href="#windows"><span>Windows</span></a></h4>
+<p>Use <a href="https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=en-gb&amp;gl=GB">the new Windows Terminal</a></p>
+<h3 id="2.-install-jellyml" tabindex="-1"><a class="header-anchor" href="#2.-install-jellyml"><span>2. Install JellyML</span></a></h3>
+<p>Next, install JellyML with pip:</p>
+<pre><code class="hljs language-sh">$ pip install jellyml
+</code></pre>
+<h3 id="3.-add-automatic-snapshots-to-your-training-code" tabindex="-1"><a class="header-anchor" href="#3.-add-automatic-snapshots-to-your-training-code"><span>3. Add automatic snapshots to your training code</span></a></h3>
+<p><a href="/docs.html#lightning-getting-started">If you are using pytorch lightning follow these directions</a></p>
+<p>Now fire up your favorite code editor, open up a python file and add these lines to your code.</p>
+<div><pre class="code-box" style="font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+<code><span class="r1">import</span><span class="r2"> jellyml</span><span class="r3"></span>
+<span class="r1">import</span><span class="r2"> torch</span><span class="r3"></span>
+<span class="r3"></span>
+<span class="r4"># At the start of your training script</span><span class="r3"></span>
+<span class="r4"># create a snapshot of your code</span><span class="r3"></span>
+<span class="r2">snapshot </span><span class="r1">=</span><span class="r2"> jellyml</span><span class="r1">.</span><span class="r2">create_jelly_filling()</span><span class="r3"></span>
+<span class="r4"># or use its alias "create_snapshot" </span><span class="r3"></span>
+<span class="r4"># if you are not in a whimsical mood</span><span class="r3"></span>
+<span class="r2">snapshot </span><span class="r1">=</span><span class="r2"> jellyml</span><span class="r1">.</span><span class="r2">create_snapshot()</span><span class="r3"></span>
+<span class="r4"># do some stuff, like actually</span><span class="r3"></span>
+<span class="r4"># train your model...</span><span class="r3"></span>
+<span class="r1">...</span><span class="r3"></span>
+<span class="r4"># then, add one extra line when</span><span class="r3"></span>
+<span class="r4"># you save your model</span><span class="r3"></span>
+<span class="r2">torch</span><span class="r1">.</span><span class="r2">save({</span><span class="r3"></span>
+<span class="r2">    </span><span class="r5">&quot;model_state_dict&quot;</span><span class="r2">: </span><span class="r3"></span>
+<span class="r2">            model</span><span class="r1">.</span><span class="r2">state_dict(),</span><span class="r3"></span>
+<span class="r2">    </span><span class="r4"># this will add the</span><span class="r3"></span>
+<span class="r2">    </span><span class="r4"># snapshot to the model file</span><span class="r3"></span>
+<span class="r2">    </span><span class="r1">**</span><span class="r2">snapshot,</span><span class="r3"></span>
+<span class="r2">}, </span><span class="r5">&quot;my_model.pth&quot;</span><span class="r2">)</span><span class="r3"></span>
+<span class="r3"></span>
+</code>
+</pre></div><p>This example will create a snapshot of your code and embed it into your checkpoint, here called &quot;my_model.pth&quot; in the current directory.</p>
+<h3 id="4.-loading-a-snapshot" tabindex="-1"><a class="header-anchor" href="#4.-loading-a-snapshot"><span>4. Loading a snapshot</span></a></h3>
+<p>Now, when you want to load your model, open up your terminal, cd to your project's directory and run this command:</p>
+<pre><code class="hljs language-sh">jellyml load-snapshot-from my_model.pth
+</code></pre>
+<p>This will load your model and your code will be exactly as it was when you saved the snapshot.</p>
+<h3 id="5.-undoing-a-snapshot" tabindex="-1"><a class="header-anchor" href="#5.-undoing-a-snapshot"><span>5. Undoing a snapshot</span></a></h3>
+<p>If you want to go back to the state of your code before you loaded the snapshot, run this command:</p>
+<pre><code class="hljs language-sh">jellyml undo
+</code></pre>
+<blockquote>
+<p><strong><em>Note:</em></strong>  Instead of using the jellyml command, you can also use jelly for short</p>
+</blockquote>
+<pre><code class="hljs language-sh">jelly load-snapshot-from my_model.pth
+</code></pre>
+<p>or jly for even shorter</p>
+<pre><code class="hljs language-sh"> jly -h
+</code></pre>
+<h3 id="last-but-not-least" tabindex="-1"><a class="header-anchor" href="#last-but-not-least"><span>Last but not least</span></a></h3>
+<p>Make sure to run <code>jellyml -h</code>, there is a something fun there that you don't want to miss!</p>
+<h2 id="lightning-getting-started" tabindex="-1"><a class="header-anchor" href="#lightning-getting-started"><span>Lightning Getting started</span></a></h2>
+<ol>
+<li>Install JellyML Lightning plugin</li>
+</ol>
+<pre><code class="hljs language-sh">pip install jellyml-lightning
+</code></pre>
+<ol start="2">
+<li>Add the plugin to your trainer</li>
+</ol>
+<pre><code class="hljs language-python"><span class="hljs-keyword">from</span> pytorch_lightning <span class="hljs-keyword">import</span> Trainer
+<span class="hljs-keyword">from</span> jellyml_lightning <span class="hljs-keyword">import</span> JellyMLLightningPlugin
+trainer = Trainer(plugins=[JellyMLLightningPlugin()])
+</code></pre>
+<p><a href="/docs.html#4.-loading-a-snapshot">Follow the rest of the normal getting started guide</a></p>
+<div style="width: 100%;" id="api"><h2 class="title" style="justify-self:left;">API Reference</h2><div class="red-line"></div></div><h2 id="create_snapshot" tabindex="-1"><a class="header-anchor" href="#create_snapshot"><span>create_snapshot</span></a></h2>
+<pre><code class="hljs language-python">create_snapshot(
+git_repo_path: <span class="hljs-built_in">str</span> | <span class="hljs-literal">None</span> = <span class="hljs-literal">None</span>,
+out_git_bundle_path: <span class="hljs-built_in">str</span> | <span class="hljs-literal">None</span> = <span class="hljs-literal">None</span>,
+create_git_repo: <span class="hljs-built_in">bool</span> = <span class="hljs-literal">False</span>
+) -&gt; <span class="hljs-built_in">dict</span>[<span class="hljs-built_in">str</span>, torch.Tensor]:
+</code></pre>
+<h3 id="alias" tabindex="-1"><a class="header-anchor" href="#alias"><span>alias</span></a></h3>
+<p><code>create_jelly_filling = create_snapshot</code></p>
+<h3 id="parameters" tabindex="-1"><a class="header-anchor" href="#parameters"><span>Parameters</span></a></h3>
+<ul>
+<li>
+<p>git_repo_path:  The path to the git repo that we will snapshot. If the value is None, jellyml will use os.getcwd()
+which gets the current working directory.</p>
+</li>
+<li>
+<p>git_bundle_path: The path to the temporary git bundle to create. If the value is None, jellyml
+will use a random path in the system temp directory</p>
+</li>
+<li>
+<p>create_git_repo: If True, then jellyml will create a git repo in the current directory, if there is not already one.
+If a repo already exists, this parameter will be ignored.</p>
+</li>
+</ul>
+<h3 id="exceptions" tabindex="-1"><a class="header-anchor" href="#exceptions"><span>Exceptions</span></a></h3>
+<ul>
+<li>raises Exception if the path is not a git repo</li>
+</ul>
+<h3 id="examples" tabindex="-1"><a class="header-anchor" href="#examples"><span>Examples</span></a></h3>
+<pre><code class="hljs language-python"><span class="hljs-keyword">import</span> jellyml
+snapshot = jellyml.create_snapshot()
+torch.save({
+    <span class="hljs-string">&quot;model&quot;</span>: model.state_dict(),
+    **snapshot
+}, <span class="hljs-string">&quot;my_model.pth&quot;</span>)
+</code></pre>
+<pre><code class="hljs language-python"><span class="hljs-keyword">import</span> jellyml
+snapshot = jellyml.create_snapshot()
+<span class="hljs-comment"># python 3.10 and above</span>
+torch.save(
+    model_dict | snapshot,
+    <span class="hljs-string">&quot;my_model.pth&quot;</span>)
+</code></pre>
+<h3 id="description" tabindex="-1"><a class="header-anchor" href="#description"><span>Description</span></a></h3>
+<p>This function creates a snapshot of your code and returns a dictionary of tensors that you can save along with your model.
+The snapshot is a dictionary of tensors, where each tensor is a
+<a href="https://git-scm.com/docs/git-bundle">git bundle</a> of your code.</p>
+<h3 id="here's-how-it-works%3A" tabindex="-1"><a class="header-anchor" href="#here's-how-it-works%3A"><span>Here's how it works:</span></a></h3>
+<p>If your working tree is clean (there are no changes to your code since the last git commit)
+then we will run</p>
+<pre><code class="hljs language-sh">git bundle create &lt;path&gt; HEAD
+</code></pre>
+<p>to create a git bundle.</p>
+<p>If your working tree is dirty (there are changes to your code since the last git commit)
+then we need to make sure that we capture the changes in the git bundle. But, at the same time
+we don't want to create any new commits or branches in your git history.
+So, we will put all of your changes, including untracked files, into a temporary stash via:</p>
+<pre><code class="hljs language-sh">git stash --include-untracked
+</code></pre>
+<p>Then we need to put git into the detached head state (if it's not already). The detached
+head state means that the HEAD pointer is not pointing towards any branch. We want to
+do this so that we can create a commit without interfering with an existing branch.</p>
+<pre><code class="hljs language-sh">git checkout --detach
+</code></pre>
+<p>Now we can grab all of your changes from the stash (but still leaving them <em>in</em> the stash)</p>
+<pre><code class="hljs language-sh">git stash apply
+</code></pre>
+<p>Then we can create a commit with all of your changes</p>
+<pre><code class="hljs language-sh">git add -A
+git commit -m <span class="hljs-string">&quot;JellyML snapshot&quot;</span>
+</code></pre>
+<p>Finally we make a git bundle of the commit we just created</p>
+<pre><code class="hljs language-sh">git bundle create &lt;path&gt; HEAD
+</code></pre>
+<p>Then we restore the state of your git repo to how it was before we ran <code>create_snapshot</code></p>
+<pre><code class="hljs language-sh">git checkout {branch_name or commit}
+git stash pop
+</code></pre>
+<hr>
+<p>Once we have the git bundle, we take the binary data from the disk, concatenate a header
+with metadata to it and convert it to a tensor. Then, we return the tensor as part of a dictionary,
+this is the snapshot that you can save with your model.</p>
+<h2 class="title" style="justify-self:left;">File Format Reference</h2><div class="red-line"></div><h2 id="the-jellyml-file-format" tabindex="-1"><a class="header-anchor" href="#the-jellyml-file-format"><span>The jellyml file format</span></a></h2>
+<p>As mentioned in the API reference, the snapshot is a dictionary of tensors, where each tensor is a <a href="https://git-scm.com/docs/gitformat-bundle">git bundle</a>
+concatenated with a header. The header is a json string that contains metadata about the git bundle.
+The description of the json fields and values are provided in <a href="https://www.github.com/mmulet/jellyml/src/jellyml/JellyMLSnapshotHeader.py">JellyMLSnapshotHeader.py</a>
+The header is padded to ${padded_header_size_in_bytes} which is given in <a href="https://www.github.com/mmulet/jellyml/src/jellyml/constants.py">constants.py</a></p>
+<h3 id="example%3A" tabindex="-1"><a class="header-anchor" href="#example%3A"><span>Example:</span></a></h3>
+<pre><code class="hljs language-json"><span class="hljs-punctuation">{</span><span class="hljs-attr">&quot;magic_number&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;jelly_ml_snapshot&quot;</span><span class="hljs-punctuation">,</span>
+ <span class="hljs-attr">&quot;snapshot_offset&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1024</span><span class="hljs-punctuation">,</span>
+ <span class="hljs-attr">&quot;snapshot_size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">01234</span><span class="hljs-punctuation">,</span>
+ <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;january-7-2023&quot;</span><span class="hljs-punctuation">}</span>
+\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>
+\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>
+\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>\<span class="hljs-number">0</span>
+....
+padding
+-------------------------------
+git bundle
+</code></pre>
+<h3 id="cli%2Fapi-functions" tabindex="-1"><a class="header-anchor" href="#cli%2Fapi-functions"><span>CLI/API Functions</span></a></h3>
+<p>The following functions each correspond to a CLI command. All the functions return an integer,
+which is same as an CLI return code (0 on success, -1 on error). They also raise Exception on errors.
+You can read the documentation about each
+command by running <code>jellyml &lt;command&gt; -h</code> or <code>jellyml &lt;command&gt; --help</code> or by reading the CLI
+Reference below.</p>
+<pre><code class="hljs language-python"><span class="hljs-keyword">from</span> jellyml.eat <span class="hljs-keyword">import</span> (eat, 
+    EatArgsWithModel_dataclass)
+<span class="hljs-meta">@dataclass</span>
+EatArgsWithModel_dataclass
+    model: <span class="hljs-built_in">str</span>
+    quiet: <span class="hljs-built_in">bool</span>
+    code_dir: <span class="hljs-type">Optional</span>[<span class="hljs-built_in">str</span>]
+    no_donut: <span class="hljs-built_in">bool</span>
+<span class="hljs-comment"># eat corresponds with load-snapshot-from</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">eat</span>(<span class="hljs-params">
+    args: EatArgsWithModel_dataclass
+    </span>) -&gt; <span class="hljs-built_in">int</span>:
+    ...
+
+<span class="hljs-keyword">from</span> jellyml.undo <span class="hljs-keyword">import</span> (undo,
+    UndoArgs_dataclass)
+
+<span class="hljs-meta">@dataclass</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">UndoArgs_dataclass</span>(<span class="hljs-title class_ inherited__">UndoArgs</span>):
+    quiet: <span class="hljs-built_in">bool</span>
+    code_dir: <span class="hljs-type">Optional</span>[<span class="hljs-built_in">str</span>]
+    no_donut: <span class="hljs-built_in">bool</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">undo</span>(<span class="hljs-params">
+    args: UndoArgs_dataclass
+    </span>) -&gt; <span class="hljs-built_in">int</span>:
+    ...
+
+<span class="hljs-keyword">from</span> jellyml.git <span class="hljs-keyword">import</span> (git,
+    GitArgs_dataclass)
+<span class="hljs-meta">@dataclass</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">GitArgs_dataclass</span>(<span class="hljs-title class_ inherited__">GitArgs</span>):
+    <span class="hljs-string">&quot;&quot;&quot;
+    The first arg, args[0], Should be 
+    the path to the model file.
+    Example:
+    ```python
+    args = [&quot;model_file.pt&quot;, &quot;fetch&quot;, &quot;{}&quot;]
+    ```
+    &quot;&quot;&quot;</span>
+    args: <span class="hljs-type">List</span>[<span class="hljs-built_in">str</span>]
+
+<span class="hljs-keyword">from</span> jellyml.extract_bundle <span class="hljs-keyword">import</span> (
+    extract_bundle,
+    ExtractBundleArgs_dataclass)
+<span class="hljs-meta">@dataclass</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">ExtractBundleArgs_dataclass</span>():
+    model: <span class="hljs-built_in">str</span>
+    output_path: <span class="hljs-type">Optional</span>[<span class="hljs-built_in">str</span>]
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">extract_bundle</span>(<span class="hljs-params">args: ExtractBundleArgs</span>)
+     -&gt; <span class="hljs-built_in">int</span>:
+    ...
+
+<span class="hljs-keyword">from</span> jellyml.delete_last_history_item <span class="hljs-keyword">import</span> (
+    delete_last_history_item,
+    DeleteLastHistoryItemArgs_dataclass)
+<span class="hljs-meta">@dataclass</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">ExtractBundleArgs_dataclass</span>():
+    model: <span class="hljs-built_in">str</span>
+    output_path: <span class="hljs-type">Optional</span>[<span class="hljs-built_in">str</span>]
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">extract_bundle</span>(<span class="hljs-params">args: ExtractBundleArgs</span>) 
+    -&gt; <span class="hljs-built_in">int</span>:
+    ...
+
+
+</code></pre>
+<div style="width: 100%;" id="cli"><h2 class="title" style="justify-self:left;">Command Line Reference</h2><div class="red-line"></div></div><h2 id="eat" tabindex="-1"><a class="header-anchor" href="#eat"><span>eat</span></a></h2>
+<p>usage: jellyml eat [options] model_file</p>
+<h3 id="aliases" tabindex="-1"><a class="header-anchor" href="#aliases"><span>aliases</span></a></h3>
+<pre><code class="hljs language-sh">jellyml load-snapshot-from
+</code></pre>
+<pre><code class="hljs language-sh">jellyml load
+</code></pre>
+<h3 id="description" tabindex="-1"><a class="header-anchor" href="#description"><span>Description</span></a></h3>
+<p>Extract a snapshot of your code from a model and into your working directory (ie. eat the
+jelly-filled donut)</p>
+<h3 id="positional-arguments" tabindex="-1"><a class="header-anchor" href="#positional-arguments"><span>Positional Arguments</span></a></h3>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>model_file</td>
+<td>The model file to extract the code from</td>
+</tr>
+</tbody>
+</table>
+<h3 id="optional-arguments" tabindex="-1"><a class="header-anchor" href="#optional-arguments"><span>Optional Arguments</span></a></h3>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-c, --code_dir</td>
+<td>The directory of the git repo that we will apply the loaded snapshot to. Defaults to the current working directory. Can be inside a folder of a git repo. For example, if your git repo is at <code>user/repo</code>, you can use <code>user/repo/src</code> as the code_dir.</td>
+</tr>
+<tr>
+<td>-q, --quiet</td>
+<td>If set, the program won't print any info messages to the console. It will only print warnings and errors.</td>
+</tr>
+<tr>
+<td>--no_donut</td>
+<td>Suppress the donut logo</td>
+</tr>
+</tbody>
+</table>
+<h3 id="here's-how-it-works%3A" tabindex="-1"><a class="header-anchor" href="#here's-how-it-works%3A"><span>Here's how it works:</span></a></h3>
+<p>First, we extract the bundle from the model file.
+We do this without using pytorch for two reasons.</p>
+<ol>
+<li>Now, we don't have to worry about the security implications of using pickle</li>
+<li>Also, we don't have to load the model into RAM (either CPU or GPU)</li>
+</ol>
+<p>So, we extract the bundle by knowing how pytorch saves tensors to disk.
+The current version of pytorch (1.13.1) saves tensors to disk using a zip file,
+the zip file is layed out like this:</p>
+<pre><code class="hljs language-sh">zip  
+    |__ data
+        |_ 0
+        |_ 1
+        |_ 2
+        ....
+    |__ data.pkl
+    |__ version
+</code></pre>
+<p>The <code>data</code> folder contains the binary data of the tensor. So we ignore
+the rest and focus only on the tensors in the <code>data</code> folder.
+One by one, we go through each tensor in the <code>data</code> folder and extract the
+first ${padded_header_size_in_bytes} looking for valid jellyml snapshots.</p>
+<p>Once we have found a valid snapshot, we remove the header and save the
+git bundle to disk. Once we have the git bundle we can use normal git commands
+to extract the code from the bundle into your working directory.</p>
+<h2 id="if-your-working-directory-is-not-a-git-repo%3A" tabindex="-1"><a class="header-anchor" href="#if-your-working-directory-is-not-a-git-repo%3A"><span>if your working directory is not a git repo:</span></a></h2>
+<div class="indent"><p>then we will create a new git repo
+by cloning the bundle</p>
+<pre><code class="hljs language-sh">git <span class="hljs-built_in">clone</span> &lt;bundle&gt; .
+</code></pre>
+</div><h2 id="else%3A" tabindex="-1"><a class="header-anchor" href="#else%3A"><span>else:</span></a></h2>
+<div class="indent"><p>Otherwise, we first fetch the bundle,</p>
+<pre><code class="hljs language-sh">git fetch &lt;bundle&gt;
+</code></pre>
+<p>Then if your working directory is dirty, we will stash your changes</p>
+<pre><code class="hljs language-sh">git stash --include-untracked
+</code></pre>
+<p>(Not shown here, but we keep track of the stash message so that if you use <code>git stash</code> yourself later on, you can still undo this change)</p>
+<p>Now, regardless of whether your working directory was dirty or not, we will checkout the commit we fetched from the bundle</p>
+<pre><code class="hljs language-sh">git checkout FETCH_HEAD
+</code></pre>
+<p>Which will bring your working directory to the exact state you were in when you created the snapshot.</p>
+<p>After doing all that, we save the metadata of everything you just did (what commit you were on,
+what the stash message was, etc) to <a href="https://www.github.com/mmulet/jellyml/src/jellyml/JellyHistoryJSON.py">history file</a> that is stored in a user data directory provided by <a href="https://pypi.org/project/appdirs/">appdirs</a>.</p>
+<p>Use</p>
+<pre><code class="hljs language-sh">jellyml fix get-history-path
+</code></pre>
+<p>to see where this file is stored.</p>
+</div><h2 id="undonut" tabindex="-1"><a class="header-anchor" href="#undonut"><span>undonut</span></a></h2>
+<p>usage: jellyml undonut [options] model_file</p>
+<h3 id="aliases" tabindex="-1"><a class="header-anchor" href="#aliases"><span>aliases</span></a></h3>
+<pre><code class="hljs language-sh">jellyml undo
+</code></pre>
+<pre><code class="hljs language-sh">jellyml <span class="hljs-built_in">return</span>
+</code></pre>
+<h3 id="description" tabindex="-1"><a class="header-anchor" href="#description"><span>Description</span></a></h3>
+<p>Undo the effects of <code>jellyml eat</code> by restoring the state of your working directory to how it was before you ran <code>jellyml eat</code></p>
+<h3 id="optional-arguments" tabindex="-1"><a class="header-anchor" href="#optional-arguments"><span>Optional Arguments</span></a></h3>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-c, --code_dir</td>
+<td>The directory of the git repo that we will apply the loaded snapshot to. Defaults to the current working directory. Can be inside a folder of a git repo. For example, if your git repo is at <code>user/repo</code>, you can use <code>user/repo/src</code> as the code_dir.</td>
+</tr>
+<tr>
+<td>-q, --quiet</td>
+<td>If set, the program won't print any info messages to the console. It will only print warnings and errors.</td>
+</tr>
+<tr>
+<td>--no_donut</td>
+<td>Suppress the donut logo</td>
+</tr>
+</tbody>
+</table>
+<h3 id="here's-how-it-works%3A" tabindex="-1"><a class="header-anchor" href="#here's-how-it-works%3A"><span>Here's how it works:</span></a></h3>
+<ul>
+<li>First we grab the history file (see <code>jellyml eat</code> for more info on the history file), to
+find what commit we need to go back to.</li>
+<li>Then, we decide what needs to happen to your current
+working tree. If nothing has changed from the time you ran <code>jellyml eat</code>, then we can just
+checkout the commit we found in the history file.
+<ul>
+<li>Otherwise, things get a little complicated. The idea is that we want to undo the effects of <code>jellyml eat</code> without losing any of your changes.</li>
+<li>So, first we make sure that the the commit we are on is related to the commit we found in the history file (
+from the snapshot embedded in the model
+), then if you have any unstaged changes that are not in their own branch, we make one for you.
+This is because commits not connected to a branch may be cleaned up by git at any time.</li>
+</ul>
+</li>
+<li>After all of the changes (if any) have been saved, we roll back things to the commit you were on
+when you ran <code>jellyml eat</code>.</li>
+<li>Then, we apply the stash you made when you ran <code>jellyml eat</code> to restore
+your working tree to how it was before you ran <code>jellyml eat</code>. That's it!</li>
+</ul>
+<h2 id="git" tabindex="-1"><a class="header-anchor" href="#git"><span>git</span></a></h2>
+<p>usage: jellyml git [options] model_file</p>
+<h3 id="description-1" tabindex="-1"><a class="header-anchor" href="#description-1"><span>Description</span></a></h3>
+<p>This is pretty advanced and you will probably will not need this.</p>
+<p>This command forwards the rest of the arguments to git using the
+model file as the git repo.</p>
+<p>Any following {} will be replaced as the path to the git repo</p>
+<h3 id="examples" tabindex="-1"><a class="header-anchor" href="#examples"><span>Examples</span></a></h3>
+<p>Change</p>
+<pre><code class="hljs language-sh">git <span class="hljs-built_in">clone</span> jellyml.com/my_repo.it
+</code></pre>
+<p>to</p>
+<pre><code class="hljs language-sh">jellyml git model.pth <span class="hljs-built_in">clone</span> {}
+</code></pre>
+<p>More examples:</p>
+<pre><code class="hljs language-sh">jellyml git model.pth fetch {}
+</code></pre>
+<pre><code class="hljs language-sh">jellyml git model.pth checkout {}
+</code></pre>
+<h3 id="how-it-works" tabindex="-1"><a class="header-anchor" href="#how-it-works"><span>How it works</span></a></h3>
+<p>First, we extract the bundle from the model file.
+Then we replace {} with the path to the bundle.
+Then we run the rest of the arguments as a command.
+Learn more about git bundles <a href="https://git-scm.com/docs/git-bundle">here</a></p>
+<h2 id="fix" tabindex="-1"><a class="header-anchor" href="#fix"><span>fix</span></a></h2>
+<p>usage: jellyml fix [options] model_file</p>
+<h3 id="description-2" tabindex="-1"><a class="header-anchor" href="#description-2"><span>Description</span></a></h3>
+<p>Again, you probably won't need this. Only if something goes wrong.</p>
+<p>These are a bunch of commands to fix common problems</p>
+<h3 id="commands" tabindex="-1"><a class="header-anchor" href="#commands"><span>Commands</span></a></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>delete-last-history-item</td>
+<td>Delete the last history item from jellyml history file.</td>
+</tr>
+<tr>
+<td>get-history-path</td>
+<td>Get the location of the history file for this repo. Useful for debugging.</td>
+</tr>
+<tr>
+<td>clear-history</td>
+<td>Delete the history file.</td>
+</tr>
+<tr>
+<td>extract-bundle</td>
+<td>Extract the git bundle from a jelly filled model file.</td>
+</tr>
+</tbody>
+</table>
+</main><footer>copyright 2023 Late for Dinner Studios, LLC</footer></body>

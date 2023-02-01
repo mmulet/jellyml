@@ -1,0 +1,501 @@
+include red_box.pug
+doctype html
+template 
+  span version-1.0
+html(lang="en")
+  head
+    include head.pug
+    title="Jelly ML Documentation"
+    style.
+        main {
+            align-items: flex-start;
+            justify-content:left;
+            
+        }
+        main {
+            padding: 10px;
+        }
+        @media (min-width: 600px) {
+        main {
+          max-width: 50%;
+          padding: 20px
+
+        }
+      }
+        pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{background:#f3f3f3;color:#444}.hljs-comment{color:#697070}.hljs-punctuation,.hljs-tag{color:#444a}.hljs-tag .hljs-attr,.hljs-tag .hljs-name{color:#444}.hljs-attribute,.hljs-doctag,.hljs-keyword,.hljs-meta .hljs-keyword,.hljs-name,.hljs-selector-tag{font-weight:700}.hljs-deletion,.hljs-number,.hljs-quote,.hljs-selector-class,.hljs-selector-id,.hljs-string,.hljs-template-tag,.hljs-type{color:#800}.hljs-section,.hljs-title{color:#800;font-weight:700}.hljs-link,.hljs-operator,.hljs-regexp,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-symbol,.hljs-template-variable,.hljs-variable{color:#ab5656}.hljs-literal{color:#695}.hljs-addition,.hljs-built_in,.hljs-bullet,.hljs-code{color:#397300}.hljs-meta{color:#1f7199}.hljs-meta .hljs-string{color:#38a}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}
+         code {
+            font-size: 12px;
+        }
+      .indent {
+        padding-left: 40px;
+      }
+
+      .indent pre code  {
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+
+body
+    a(href="/")
+        img(src="/static/logo.png" alt="Jelly ML logo" style="height: 100px;")
+    h1 JellyML Documentation
+    main(style="margin-bottom: 20px;padding: 10px;")
+        h2 Table of Contents
+        ul
+            li 
+                a(href="#getting-started") Getting Started
+            li  
+                a(href="#api") API
+                ul
+                    li
+                        a(href="#create_snapshot") create_snapshot
+                ul
+                    li 
+                        a(href="#create_snapshot") create_snapshot
+            li 
+                a(href="#cli") Command Line Reference
+                ul
+                    li 
+                        a(href="#eat") eat
+                    li 
+                        a(href="#undonut") undonut
+                    li 
+                        a(href="#git") git
+                    li 
+                        a(href="#fix") fix
+    main
+        +red_box("Tutorial")
+        :markdown(levels=[1,2])
+            ## Getting Started
+            Welcome to JellyML!
+            JellyML is an open-source tool (python API and command line) for effortlessly embedding a snapshot of your code 
+            into a checkpoint of a pytorch (and pytorch lightning) model.
+            ### 1. Install git
+            The first step is to make sure you have git installed. You can 
+            [download git from here](https://git-scm.com/downloads).
+            ### 1.5 (Optional but recommended for nicer looking output) Download a terminal with rich text support
+            JellyML uses the lovely [rich](https://github.com/Textualize/rich) library to make the output look nice.
+            But, the output on some terminals won't look as nice as it could. Here are the terminals that the rich library
+            developers recommend:
+            #### Linux (all distros)
+            Most default terminals support rich text. On Ubuntu you can use gnome-terminal, launched with 
+             | CTRL+ALT+T
+            #### macOS
+            The default terminal app is limited to 256 colors. We recommend installing a newer terminal such as 
+            [iTerm2](https://iterm2.com/), [Kitty](https://sw.kovidgoyal.net/kitty/), or [WezTerm](https://wezfurlong.org/wezterm/).
+            #### Windows
+            Use [the new Windows Terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=en-gb&gl=GB)
+            ### 2. Install JellyML
+            Next, install JellyML with pip:
+            ```sh
+            $ pip install jellyml
+            ```
+            ### 3. Add automatic snapshots to your training code
+            [If you are using pytorch lightning follow these directions](/docs.html#lightning-getting-started)
+
+            Now fire up your favorite code editor, open up a python file and add these lines to your code.
+            
+        div !{python_example_html}
+        :markdown(levels=[1,2])
+            This example will create a snapshot of your code and embed it into your checkpoint, here called "my_model.pth" in the current directory.
+            ### 4. Loading a snapshot
+            Now, when you want to load your model, open up your terminal, cd to your project's directory and run this command:
+            ```sh
+            jellyml load-snapshot-from my_model.pth
+            ```
+            This will load your model and your code will be exactly as it was when you saved the snapshot.
+            ### 5. Undoing a snapshot
+            If you want to go back to the state of your code before you loaded the snapshot, run this command:
+            ```sh
+            jellyml undo
+            ```
+            > **_Note:_**  Instead of using the jellyml command, you can also use jelly for short
+            ```sh
+            jelly load-snapshot-from my_model.pth
+            ```
+            or jly for even shorter 
+            ```sh
+             jly -h
+             ```
+             ### Last but not least
+            Make sure to run `jellyml -h`, there is a something fun there that you don't want to miss!
+            ## Lightning Getting started
+            1. Install JellyML Lightning plugin
+            ```sh
+            pip install jellyml-lightning
+            ```
+            2. Add the plugin to your trainer
+            ```python
+            from pytorch_lightning import Trainer
+            from jellyml_lightning import JellyMLLightningPlugin
+            trainer = Trainer(plugins=[JellyMLLightningPlugin()])
+            ```
+            [Follow the rest of the normal getting started guide](/docs.html#4.-loading-a-snapshot)
+
+            
+        div(style="width: 100%;", id="api")
+            +red_box("API Reference")
+        :markdown(levels=[1,2])
+            ## create_snapshot
+            ```python 
+            create_snapshot(
+            git_repo_path: str | None = None,
+            out_git_bundle_path: str | None = None,
+            create_git_repo: bool = False
+            ) -> dict[str, torch.Tensor]:
+            ```
+
+            ### alias 
+            `create_jelly_filling = create_snapshot`
+            ### Parameters
+            - git_repo_path:  The path to the git repo that we will snapshot. If the value is None, jellyml will use os.getcwd()
+                which gets the current working directory.
+
+            - git_bundle_path: The path to the temporary git bundle to create. If the value is None, jellyml
+                        will use a random path in the system temp directory
+
+            - create_git_repo: If True, then jellyml will create a git repo in the current directory, if there is not already one. 
+                If a repo already exists, this parameter will be ignored. 
+            ### Exceptions 
+            - raises Exception if the path is not a git repo
+            ### Examples
+            ```python
+            import jellyml
+            snapshot = jellyml.create_snapshot()
+            torch.save({
+                "model": model.state_dict(),
+                **snapshot
+            }, "my_model.pth")
+            ```
+            ```python 
+            import jellyml
+            snapshot = jellyml.create_snapshot()
+            # python 3.10 and above
+            torch.save(
+                model_dict | snapshot,
+                "my_model.pth")
+            ```
+            ### Description
+            This function creates a snapshot of your code and returns a dictionary of tensors that you can save along with your model.
+            The snapshot is a dictionary of tensors, where each tensor is a
+            [git bundle](https://git-scm.com/docs/git-bundle) of your code.
+
+            ### Here's how it works:
+            
+            If your working tree is clean (there are no changes to your code since the last git commit)
+            then we will run
+            ```sh
+            git bundle create <path> HEAD
+            ```
+            to create a git bundle.
+
+
+            If your working tree is dirty (there are changes to your code since the last git commit)
+            then we need to make sure that we capture the changes in the git bundle. But, at the same time 
+            we don't want to create any new commits or branches in your git history.
+            So, we will put all of your changes, including untracked files, into a temporary stash via:
+            ```sh
+            git stash --include-untracked
+            ```
+            Then we need to put git into the detached head state (if it's not already). The detached 
+            head state means that the HEAD pointer is not pointing towards any branch. We want to 
+            do this so that we can create a commit without interfering with an existing branch.
+            ```sh
+            git checkout --detach
+            ```
+            Now we can grab all of your changes from the stash (but still leaving them *in* the stash)
+            ```sh
+            git stash apply
+            ```
+            Then we can create a commit with all of your changes
+            ```sh
+            git add -A
+            git commit -m "JellyML snapshot"
+            ```
+            Finally we make a git bundle of the commit we just created
+            ```sh
+            git bundle create <path> HEAD
+            ```
+            Then we restore the state of your git repo to how it was before we ran `create_snapshot`
+            ```sh
+            git checkout {branch_name or commit}
+            git stash pop
+            ```
+
+            ----
+            Once we have the git bundle, we take the binary data from the disk, concatenate a header
+            with metadata to it and convert it to a tensor. Then, we return the tensor as part of a dictionary,
+            this is the snapshot that you can save with your model.
+
+        
+
+        +red_box("File Format Reference")
+        :markdown(levels=[1,2])
+            ## The jellyml file format
+            As mentioned in the API reference, the snapshot is a dictionary of tensors, where each tensor is a [git bundle](https://git-scm.com/docs/gitformat-bundle)
+            concatenated with a header. The header is a json string that contains metadata about the git bundle.
+            The description of the json fields and values are provided in [JellyMLSnapshotHeader.py](https://www.github.com/mmulet/jellyml/src/jellyml/JellyMLSnapshotHeader.py)
+            The header is padded to ${padded_header_size_in_bytes} which is given in [constants.py](https://www.github.com/mmulet/jellyml/src/jellyml/constants.py)
+            ### Example:
+
+            ```json 
+            {"magic_number": "jelly_ml_snapshot",
+             "snapshot_offset": 1024,
+             "snapshot_size": 01234,
+             "version": "january-7-2023"}
+            \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0
+            \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0
+            \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0
+            ....
+            padding
+            -------------------------------
+            git bundle
+            ```
+
+            ### CLI/API Functions 
+            The following functions each correspond to a CLI command. All the functions return an integer,
+            which is same as an CLI return code (0 on success, -1 on error). They also raise Exception on errors. 
+            You can read the documentation about each
+            command by running `jellyml <command> -h` or `jellyml <command> --help` or by reading the CLI
+            Reference below.
+
+            ```python 
+            from jellyml.eat import (eat, 
+                EatArgsWithModel_dataclass)
+            @dataclass
+            EatArgsWithModel_dataclass
+                model: str
+                quiet: bool
+                code_dir: Optional[str]
+                no_donut: bool
+            # eat corresponds with load-snapshot-from
+            def eat(
+                args: EatArgsWithModel_dataclass
+                ) -> int:
+                ...
+
+            from jellyml.undo import (undo,
+                UndoArgs_dataclass)
+
+            @dataclass
+            class UndoArgs_dataclass(UndoArgs):
+                quiet: bool
+                code_dir: Optional[str]
+                no_donut: bool
+            def undo(
+                args: UndoArgs_dataclass
+                ) -> int:
+                ...
+
+            from jellyml.git import (git,
+                GitArgs_dataclass)
+            @dataclass
+            class GitArgs_dataclass(GitArgs):
+                """
+                The first arg, args[0], Should be 
+                the path to the model file.
+                Example:
+                ```python
+                args = ["model_file.pt", "fetch", "{}"]
+                ```
+                """
+                args: List[str]
+
+            from jellyml.extract_bundle import (
+                extract_bundle,
+                ExtractBundleArgs_dataclass)
+            @dataclass
+            class ExtractBundleArgs_dataclass():
+                model: str
+                output_path: Optional[str]
+            def extract_bundle(args: ExtractBundleArgs)
+                 -> int:
+                ...
+
+            from jellyml.delete_last_history_item import (
+                delete_last_history_item,
+                DeleteLastHistoryItemArgs_dataclass)
+            @dataclass
+            class ExtractBundleArgs_dataclass():
+                model: str
+                output_path: Optional[str]
+            def extract_bundle(args: ExtractBundleArgs) 
+                -> int:
+                ...
+            
+
+            ```
+
+        div(style="width: 100%;", id="cli")
+            +red_box("Command Line Reference")
+        :markdown(levels=[1,2])
+            ## eat 
+            usage: jellyml eat [options] model_file
+            ### aliases 
+            ```sh
+            jellyml load-snapshot-from
+            ```
+            ```sh
+            jellyml load
+            ```
+            ### Description 
+            Extract a snapshot of your code from a model and into your working directory (ie. eat the 
+            jelly-filled donut)
+            ### Positional Arguments
+            | Argument | Description |
+            |-----|-----|
+            | model_file | The model file to extract the code from |
+            ### Optional Arguments
+            | option | Description |
+              |-----|-----|
+            | -c, --code_dir | The directory of the git repo that we will apply the loaded snapshot to. Defaults to the current working directory. Can be inside a folder of a git repo. For example, if your git repo is at `user/repo`, you can use `user/repo/src` as the code_dir.|
+            | -q, --quiet | If set, the program won't print any info messages to the console. It will only print warnings and errors. |
+            | --no_donut | Suppress the donut logo |
+
+            ### Here's how it works:
+            First, we extract the bundle from the model file. 
+            We do this without using pytorch for two reasons.
+            1. Now, we don't have to worry about the security implications of using pickle
+            2. Also, we don't have to load the model into RAM (either CPU or GPU)
+
+            So, we extract the bundle by knowing how pytorch saves tensors to disk.
+            The current version of pytorch (1.13.1) saves tensors to disk using a zip file, 
+            the zip file is layed out like this:
+            ```sh
+            zip  
+                |__ data
+                    |_ 0
+                    |_ 1
+                    |_ 2
+                    ....
+                |__ data.pkl
+                |__ version
+            ```
+            The `data` folder contains the binary data of the tensor. So we ignore 
+            the rest and focus only on the tensors in the `data` folder.
+            One by one, we go through each tensor in the `data` folder and extract the 
+            first ${padded_header_size_in_bytes} looking for valid jellyml snapshots.
+
+            Once we have found a valid snapshot, we remove the header and save the
+            git bundle to disk. Once we have the git bundle we can use normal git commands
+            to extract the code from the bundle into your working directory.
+
+       
+        :markdown
+            ## if your working directory is not a git repo:
+        .indent
+            :markdown(levels=[1,2])
+                then we will create a new git repo
+                by cloning the bundle 
+                ```sh
+                git clone <bundle> .
+                ```
+        :markdown
+            ## else:
+        .indent
+            :markdown(levels=[1,2])
+                Otherwise, we first fetch the bundle,
+                ```sh
+                git fetch <bundle>
+                ```
+        
+                Then if your working directory is dirty, we will stash your changes
+                ```sh
+                git stash --include-untracked
+                ```
+                (Not shown here, but we keep track of the stash message so that if you use `git stash` yourself later on, you can still undo this change)
+
+                Now, regardless of whether your working directory was dirty or not, we will checkout the commit we fetched from the bundle 
+                ```sh
+                git checkout FETCH_HEAD
+                ```
+                Which will bring your working directory to the exact state you were in when you created the snapshot.
+
+                After doing all that, we save the metadata of everything you just did (what commit you were on, 
+                what the stash message was, etc) to [history file](https://www.github.com/mmulet/jellyml/src/jellyml/JellyHistoryJSON.py) that is stored in a user data directory provided by [appdirs](https://pypi.org/project/appdirs/).
+                
+                Use 
+                ```sh
+                jellyml fix get-history-path
+                ```
+                to see where this file is stored.
+        :markdown(levels=[1,2])
+         
+
+            ## undonut
+            usage: jellyml undonut [options] model_file
+            ### aliases 
+            ```sh
+            jellyml undo
+            ```
+            ```sh
+            jellyml return
+            ```
+            ### Description
+            Undo the effects of `jellyml eat` by restoring the state of your working directory to how it was before you ran `jellyml eat`
+            ### Optional Arguments
+            | Argument | Description |
+            |-----|-----|
+            | -c, --code_dir |The directory of the git repo that we will apply the loaded snapshot to. Defaults to the current working directory. Can be inside a folder of a git repo. For example, if your git repo is at `user/repo`, you can use `user/repo/src` as the code_dir.|
+            | -q, --quiet | If set, the program won't print any info messages to the console. It will only print warnings and errors. |
+            | --no_donut | Suppress the donut logo |
+
+            ### Here's how it works:
+            - First we grab the history file (see `jellyml eat` for more info on the history file), to 
+            find what commit we need to go back to. 
+            - Then, we decide what needs to happen to your current
+            working tree. If nothing has changed from the time you ran `jellyml eat`, then we can just
+            checkout the commit we found in the history file. 
+                - Otherwise, things get a little complicated. The idea is that we want to undo the effects of `jellyml eat` without losing any of your changes.
+                - So, first we make sure that the the commit we are on is related to the commit we found in the history file (
+                from the snapshot embedded in the model
+                ), then if you have any unstaged changes that are not in their own branch, we make one for you.
+                This is because commits not connected to a branch may be cleaned up by git at any time.
+            - After all of the changes (if any) have been saved, we roll back things to the commit you were on
+            when you ran `jellyml eat`. 
+            - Then, we apply the stash you made when you ran `jellyml eat` to restore
+            your working tree to how it was before you ran `jellyml eat`. That's it!
+            ## git
+            usage: jellyml git [options] model_file
+            ### Description 
+            This is pretty advanced and you will probably will not need this.
+
+            This command forwards the rest of the arguments to git using the 
+            model file as the git repo.                         
+                                                                
+            Any following {} will be replaced as the path to the git repo
+            ### Examples
+            Change 
+            ```sh
+            git clone jellyml.com/my_repo.it
+            ```
+            to
+            ```sh
+            jellyml git model.pth clone {}
+            ```
+            More examples: 
+            ```sh 
+            jellyml git model.pth fetch {}
+            ```
+            ```sh
+            jellyml git model.pth checkout {}
+            ```
+            ### How it works 
+            First, we extract the bundle from the model file.
+            Then we replace {} with the path to the bundle.
+            Then we run the rest of the arguments as a command.
+            Learn more about git bundles [here](https://git-scm.com/docs/git-bundle)
+            ## fix
+            usage: jellyml fix [options] model_file
+            ### Description
+            Again, you probably won't need this. Only if something goes wrong.
+            
+            These are a bunch of commands to fix common problems
+            ### Commands
+            | Command | Description |
+            |-----|-----|
+            |delete-last-history-item | Delete the last history item from jellyml history file. |
+            |get-history-path | Get the location of the history file for this repo. Useful for debugging. | 
+            |clear-history | Delete the history file. |
+            |extract-bundle | Extract the git bundle from a jelly filled model file.      |
+    include footer.pug

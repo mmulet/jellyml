@@ -1,0 +1,25 @@
+<pre class="code-box" style="font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+<code><span class="r1">import</span><span class="r2"> jellyml</span><span class="r3"></span>
+<span class="r1">import</span><span class="r2"> torch</span><span class="r3"></span>
+<span class="r3"></span>
+<span class="r4"># At the start of your training script</span><span class="r3"></span>
+<span class="r4"># create a snapshot of your code</span><span class="r3"></span>
+<span class="r2">snapshot </span><span class="r1">=</span><span class="r2"> jellyml</span><span class="r1">.</span><span class="r2">create_jelly_filling()</span><span class="r3"></span>
+<span class="r4"># or use its alias "create_snapshot" </span><span class="r3"></span>
+<span class="r4"># if you are not in a whimsical mood</span><span class="r3"></span>
+<span class="r2">snapshot </span><span class="r1">=</span><span class="r2"> jellyml</span><span class="r1">.</span><span class="r2">create_snapshot()</span><span class="r3"></span>
+<span class="r4"># do some stuff, like actually</span><span class="r3"></span>
+<span class="r4"># train your model...</span><span class="r3"></span>
+<span class="r1">...</span><span class="r3"></span>
+<span class="r4"># then, add one extra line when</span><span class="r3"></span>
+<span class="r4"># you save your model</span><span class="r3"></span>
+<span class="r2">torch</span><span class="r1">.</span><span class="r2">save({</span><span class="r3"></span>
+<span class="r2">    </span><span class="r5">&quot;model_state_dict&quot;</span><span class="r2">: </span><span class="r3"></span>
+<span class="r2">            model</span><span class="r1">.</span><span class="r2">state_dict(),</span><span class="r3"></span>
+<span class="r2">    </span><span class="r4"># this will add the</span><span class="r3"></span>
+<span class="r2">    </span><span class="r4"># snapshot to the model file</span><span class="r3"></span>
+<span class="r2">    </span><span class="r1">**</span><span class="r2">snapshot,</span><span class="r3"></span>
+<span class="r2">}, </span><span class="r5">&quot;my_model.pth&quot;</span><span class="r2">)</span><span class="r3"></span>
+<span class="r3"></span>
+</code>
+</pre>

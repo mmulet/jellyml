@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jellyml"
+version = "1.0.0"
+authors = [
+    {name = "Michael Mulet", email = "mike@lfds.io"},
+]
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)",
+    "Operating System :: OS Independent",
+]
+description = "A tool/library for embeding a snapshot of your code into a pytorch model file"
+keywords = ["pytorch", "jellyml", "model", "code", "snapshot", "embed", "library", "tool"]
+dependencies= [
+    "torch ~= 1.13.1",
+    "appdirs ~= 1.4.4",
+    "rich ~= 13.2.0"
+]
+
+[project.urls]
+"Documentation" = "https://jellyml/docs.html"
+"repository" = "https://github.com/mmulet/jellyml.git"
+"Homepage" = "https://jellyml.com"
+"Bug Tracker" = "https://github.com/mmulet/jellyml/issues"
+
+
+
+
+[project.scripts]
+jellyml = "jellyml.cli:main"
+jelly = "jellyml.cli:main"
+jly = "jellyml.cli:main"

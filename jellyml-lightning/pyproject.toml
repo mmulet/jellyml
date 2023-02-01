@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jellyml-lightning"
+version = "1.0.1"
+authors = [
+    {name = "Michael Mulet", email = "mike@jellyml.com"},
+]
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)",
+    "Operating System :: OS Independent",
+]
+description = "A plugin to jelly-fill lightning checkpoints"
+keywords = ["pytorch",  "jellyml", "lightning", "pytorch lightning", "model", "code", "snapshot", "embed", "library", "tool"]
+dependencies= [
+    "jellyml ~= 1.0.0",
+    "pytorch-lightning ~= 1.9.0",
+]
+
+[project.urls]
+"Homepage" = "https://jellyml.com"
+"Documentation" = "https://jellyml/docs.html"
+"repository" = "https://github.com/mmulet/jellyml.git"
+"Bug Tracker" = "https://github.com/mmulet/jellyml/issues"
