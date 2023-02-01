@@ -258,20 +258,17 @@ export class Controller {
       draw_donut(this.context, this.sprites, donut);
     }
   };
-
-  adjust_context_for_viewport = () => {
-    const view_port = window.visualViewport;
-    if (!view_port) {
-      return;
-    }
-    this.context.translate(view_port.offsetLeft, view_port.offsetTop);
-  };
+ 
 
   draw = () => {
     this.context.setTransform(this.original_transform);
     this.context.clearRect(0, 0, this.width, this.height);
 
-    this.adjust_context_for_viewport();
+    //check zoom level
+    const zoom = window.visualViewport?.scale || 1;
+    if (zoom != 1) {
+      return;
+    }
 
     const left_position = {
       x: this.main_position.left,
